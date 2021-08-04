@@ -26,4 +26,10 @@ extension Logger {
         self.init(label: [label, category].compactMap { $0 }.joined(separator: "."))
         #endif
     }
+
+    #if !canImport(os)
+    public init() {
+        self.init(label: Bundle.main.bundleIdentifier ?? "")
+    }
+    #endif
 }
