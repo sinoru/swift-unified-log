@@ -33,6 +33,6 @@ jobs:
         env:
           SWIFT_VERSION: ${{ matrix.swift-version }}
       - name: Run tests
-        run: swift test -v
+        run: swift test -v --enable-test-discovery
         env:
           SWIFT_VERSION: ${{ matrix.swift-version }}
