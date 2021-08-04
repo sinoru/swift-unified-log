@@ -1,5 +1,7 @@
 # swift-unified-log
 
+[![Test](https://github.com/sinoru/swift-unified-log/actions/workflows/test.yml/badge.svg)](https://github.com/sinoru/swift-unified-log/actions/workflows/test.yml)
+
 This library will make you log with a single line with all benefits of os.Logging, swift-log features.
 
 ## Getting started
