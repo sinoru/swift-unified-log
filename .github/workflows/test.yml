@@ -1,0 +1,33 @@
+name: Test
+
+on:
+  push:
+    paths:
+      - '.github/workflows/test.yml'
+      - '**/*.swift'
+  pull_request:
+    paths:
+      - '.github/workflows/test.yml'
+      - '**/*.swift'
+
+jobs:
+  swift-test:
+    strategy:
+      fail-fast: false
+      matrix:
+        operating-system: [ubuntu-18.04, ubuntu-20.04, macos-11]
+        swift-version: ["5.3.3", "5.4.2"]
+    runs-on: ${{ matrix.operating-system }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: sinoru/actions-setup-swift@v2
+        with:
+          swift-version: ${{ matrix.swift-version }}
+      - name: Build
+        run: swift build -v
+        env:
+          SWIFT_VERSION: ${{ matrix.swift-version }}
+      - name: Run tests
+        run: swift test -v --enable-test-discovery
+        env:
+          SWIFT_VERSION: ${{ matrix.swift-version }}
