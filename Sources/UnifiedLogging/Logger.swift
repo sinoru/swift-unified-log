@@ -13,9 +13,9 @@ import Logging
 #endif
 
 #if canImport(os)
-typealias Logger = os.Logger
+public typealias Logger = os.Logger
 #else
-typealias Logger = Logging.Logger
+public typealias Logger = Logging.Logger
 #endif
 
 extension Logger {
