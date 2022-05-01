@@ -14,7 +14,7 @@ env:
   APPLE_ID: "bot@sinoru.io"
 
 jobs:
-  test:
+  swift:
     strategy:
       fail-fast: false
       matrix:
@@ -26,7 +26,7 @@ jobs:
       - uses: sinoru/actions-setup-xcode@v2
         if: ${{ startsWith(matrix.operating-system, 'macos') }}
         with:
-          xcode-version: "13.1"
+          xcode-version: "12.4"
           apple-id: ${{ secrets.APPLE_ID }}
           apple-id-password: ${{ secrets.APPLE_ID_PASSWORD }}
       - uses: sinoru/actions-setup-swift@v2
@@ -41,7 +41,7 @@ jobs:
         env:
           SWIFT_VERSION: ${{ matrix.swift-version }}
 
-  test-xcode:
+  xcode:
     strategy:
       fail-fast: false
       matrix:
