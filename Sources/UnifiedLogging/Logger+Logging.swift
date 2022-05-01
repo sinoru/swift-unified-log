@@ -15,10 +15,12 @@ extension Logger: LoggerProtocol {
     public typealias LogMessage = Message
     public typealias LogLevel = Level
 
+    @inlinable
     public init(label: String, category: String?) {
         self.init(label: [label, category].compactMap { $0 }.joined(separator: "."))
     }
 
+    @inlinable
     public init() {
         self.init(label: Bundle.main.bundleIdentifier ?? "")
     }

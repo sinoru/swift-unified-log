@@ -26,6 +26,7 @@ public protocol LogLevel {
 }
 
 extension LogLevel {
+    @inlinable
     public static var allLevels: [Self] {
         [
             Self.trace,
