@@ -6,6 +6,7 @@
 //
 
 #if canImport(Logging)
+import Foundation
 import Logging
 
 public typealias Logger = Logging.Logger
