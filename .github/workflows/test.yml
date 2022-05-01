@@ -10,9 +10,6 @@ on:
       - '.github/workflows/test.yml'
       - '**/*.swift'
 
-env:
-  APPLE_ID: "bot@sinoru.io"
-
 jobs:
   swift:
     strategy:
