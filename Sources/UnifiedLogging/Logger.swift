@@ -5,31 +5,37 @@
 //  Created by Jaehong Kang on 2021/08/04.
 //
 
-import Foundation
-#if canImport(os)
-import os
-#else
-import Logging
-#endif
+public protocol LoggerProtocol {
+    associatedtype LogLevel: UnifiedLogging.LogLevel
+    associatedtype LogMessage: ExpressibleByStringLiteral
 
-#if canImport(os)
-public typealias Logger = os.Logger
-#else
-public typealias Logger = Logging.Logger
-#endif
+    init(label: String, category: String?)
+    init()
 
-extension Logger {
-    public init(label: String, category: String?) {
-        #if canImport(os)
-        self.init(subsystem: label, category: category ?? "")
-        #else
-        self.init(label: [label, category].compactMap { $0 }.joined(separator: "."))
-        #endif
+    func log(level: LogLevel, _ message: LogMessage)
+}
+
+public protocol LogLevel {
+    static var trace: Self { get }
+    static var debug: Self { get }
+    static var info: Self { get }
+    static var notice: Self { get }
+    static var warning: Self { get }
+    static var error: Self { get }
+    static var critical: Self { get }
+}
+
+extension LogLevel {
+    @inlinable
+    public static var allLevels: [Self] {
+        [
+            Self.trace,
+            Self.debug,
+            Self.info,
+            Self.notice,
+            Self.warning,
+            Self.error,
+            Self.critical
+        ]
     }
-
-    #if !canImport(os)
-    public init() {
-        self.init(label: Bundle.main.bundleIdentifier ?? "")
-    }
-    #endif
 }
