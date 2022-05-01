@@ -8,8 +8,10 @@
 #if canImport(os)
 import os
 
+@available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *)
 public typealias Logger = os.Logger
 
+@available(macOS 11.0, iOS 14.0, watchOS 7.0, tvOS 14.0, *)
 extension Logger: LoggerProtocol {
     public typealias LogMessage = OSLogMessage
     public typealias LogLevel = OSLogType
@@ -19,6 +21,7 @@ extension Logger: LoggerProtocol {
     }
 }
 
+@available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
 extension OSLogType: LogLevel {
     public static var trace: OSLogType {
         .debug
