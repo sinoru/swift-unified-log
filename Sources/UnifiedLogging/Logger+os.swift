@@ -21,7 +21,6 @@ extension Logger: LoggerProtocol {
     }
 }
 
-@available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
 extension OSLogType: LogLevel {
     public static var trace: OSLogType {
         .debug
