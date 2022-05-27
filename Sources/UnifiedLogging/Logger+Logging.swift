@@ -5,7 +5,7 @@
 //  Created by Jaehong Kang on 2022/05/01.
 //
 
-#if !canImport(os) && canImport(Logging)
+#if canImport(Logging)
 import Foundation
 import Logging
 
