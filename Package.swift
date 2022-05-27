@@ -28,10 +28,7 @@ let package = Package(
         .target(
             name: "UnifiedLogging",
             dependencies: [
-                .product(
-                    name: "Logging",
-                    package: "swift-log"),
-            ]),
+                .product(name: "Logging", package: "swift-log", condition: .when(platforms: [.android, .linux, .wasi, .windows]))]),
         .testTarget(
             name: "UnifiedLoggingTests",
             dependencies: ["UnifiedLogging"]),
