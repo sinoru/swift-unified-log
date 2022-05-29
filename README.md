@@ -13,7 +13,7 @@ If you have a server-side Swift application, or maybe a cross-platform (for exam
 `swift-unified-log` is designed for Swift 5.3 and later. To depend on the logging API package, you need to declare your dependency in your `Package.swift`:
 
 ```swift
-.package(url: "https://github.com/sinoru/swift-unified-log.git", from: "2.0.0"),
+.package(url: "https://github.com/sinoru/swift-unified-log.git", from: "2.0.2"),
 ```
 
 and to your application/library target, add `"UnifiedLogging"` to your `dependencies`, e.g. like this:
