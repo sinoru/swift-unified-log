@@ -30,7 +30,7 @@ extension OSLogType: LogLevel {
 
     @inlinable
     public static var notice: OSLogType {
-        .info
+        .default
     }
 
     @inlinable
