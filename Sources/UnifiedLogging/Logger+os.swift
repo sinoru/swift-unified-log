@@ -35,7 +35,7 @@ extension OSLogType: LogLevel {
 
     @inlinable
     public static var warning: OSLogType {
-        .default
+        .error
     }
 
     @inlinable
